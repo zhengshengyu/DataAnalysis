@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-# Data Aggregation and Group Operations
 from __future__ import division
 from numpy.random import randn
 import numpy as np
@@ -12,6 +11,8 @@ plt.rc('figure', figsize=(10, 6))
 from pandas import Series, DataFrame
 import pandas as pd
 np.set_printoptions(precision=4)
+
+# Data Aggregation and Group Operations
 
 ## GroupBy mechanics
 df = DataFrame({'key1' : ['a', 'a', 'b', 'b', 'a'],
@@ -193,3 +194,9 @@ data.groupby(group_key).apply(fill_func)
 
 ### Example: Random sampling and permutation
 
+
+## Pivot tables and Cross-tabulation
+print tips[:5]
+print  tips.pivot_table(rows=['sex', 'smoker'])
+print tips.pivot_table(['tip_pct', 'size'], rows=['sex', 'day'], cols='smoker')
+print tips.pivot_table(['tip_pct', 'size'], rows=['sex', 'day'], cols='smoker', margins = True)
